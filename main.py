@@ -18,7 +18,6 @@ def extract_username(url:str)->str:
     return username
 username=extract_username(url)    
 token=os.getenv("token_git")
-print(type(token))
 def responses(user:str,token:str):
     headers={}
     if token:
@@ -39,7 +38,6 @@ for repo in r1:
     info["Description"]=des
     updated_at = repo.get("updated_at", "")
     dates=datetime.strptime(updated_at, "%Y-%m-%dT%H:%M:%SZ")
-    print(type(dates))
     info["Date"]=dates
     topics = repo.get("topics", [])
     info["topic"]=topics
@@ -58,8 +56,10 @@ for repo in r1:
     else:
         max_used=max(res,key=res.get)
         max_lan["main_language"]=max_used
+    print(repo_url)
     print(info)
-    print(max_lan)    
+    print(max_lan)  
+    print("_________________________________________")  
 #to check active users
 
 
